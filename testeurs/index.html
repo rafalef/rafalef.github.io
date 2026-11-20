@@ -1,16 +1,79 @@
-Deviens testeur · MONOVA Games
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deviens testeur · MONOVA Games</title>
+<meta name="description" content="Teste les jeux MONOVA Games avant leur sortie sur Google Play.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#2a0f1f;--card:#3d1530;--ink:#fff4f0;--mute:#d2b2bf;--coral:#ff5a4e;--ok:#19b38a;--mid:#ffc93c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(700px 500px at 90% -10%,#5b1d3d,transparent 70%),var(--bg);color:var(--ink);font:17px/1.55 Nunito,system-ui,sans-serif;min-height:100vh}
+main{max-width:560px;margin:0 auto;padding:36px 20px 60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--mute)}
+.brand i{width:12px;height:12px;border-radius:50%;background:var(--coral)}
+h1{font:800 clamp(38px,9vw,52px)/1.05 "Baloo 2",sans-serif;margin:18px 0 10px}
+h1 span{color:var(--coral)}
+.lead{color:var(--mute);margin-bottom:28px}
+.game{background:var(--card);border-radius:24px;padding:22px;margin-bottom:18px}
+.game h2{font:800 30px/1.1 "Baloo 2",sans-serif}
+.game p.d{color:var(--mute);margin:4px 0 16px}
+ol{list-style:none;counter-reset:s}
+ol li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;margin-bottom:16px}
+ol li::before{content:counter(s);width:40px;height:40px;border-radius:12px;background:var(--bg);display:flex;align-items:center;justify-content:center;font:800 22px "Baloo 2";color:var(--mid)}
+ol b{display:block}
+ol small{display:block;color:var(--mute);font-size:15px;margin-bottom:8px}
+a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:14px;background:var(--coral);color:#fff;font-weight:800;text-decoration:none}
+a.btn.ok{background:var(--ok)}
+a.btn:focus-visible{outline:3px solid var(--mid);outline-offset:2px}
+.soon{display:inline-block;padding:10px 16px;border-radius:14px;background:var(--bg);color:var(--mute);font-weight:800}
+details{background:#00000026;border-radius:18px;padding:14px 18px;margin-top:10px}
+summary{font-weight:800;cursor:pointer}
+details p{color:var(--mute);margin-top:8px}
+footer{margin-top:34px;color:var(--mute);font-size:14px;text-align:center}
+footer a{color:var(--ink)}
+</style>
+</head>
+<body>
+<main>
+ <div class="brand"><i></i>MONOVA Games</div>
+ <h1>Deviens <span>testeur</span></h1>
+ <p class="lead">Joue à nos jeux avant tout le monde, gratuitement, et aide-nous à les améliorer. Il faut un téléphone Android et un compte Google.</p>
+ <div id="games"></div>
 
+ <details><summary>C'est vraiment gratuit ?</summary><p>Oui. Le jeu de test est le même que celui qui sortira, en avant-première. Rien à payer, aucune inscription en dehors de ton compte Google.</p></details>
+ <details><summary>Que dois-je faire en tant que testeur ?</summary><p>Simplement jouer et garder le jeu installé quelques semaines. Si quelque chose ne va pas, signale-le depuis le jeu ou écris-nous.</p></details>
+ <details><summary>Le lien de l'étape 2 dit que l'appli est introuvable</summary><p>L'étape 1 n'a pas encore été prise en compte. Vérifie que tu as bien rejoint le groupe avec le même compte Google que sur ton téléphone, attends quelques minutes, puis réessaie.</p></details>
+ <details><summary>Comment arrêter le test ?</summary><p>Sur la page de l'étape 2, choisis « Quitter le programme ». Tu peux aussi quitter le groupe.</p></details>
 
-MONOVA Games
-Deviens testeur
-Joue à nos jeux avant tout le monde, gratuitement, et aide-nous à les améliorer. Il faut un téléphone Android et un compte Google.
-
-C'est vraiment gratuit ?
-Oui. Le jeu de test est le même que celui qui sortira, en avant-première. Rien à payer, aucune inscription en dehors de ton compte Google.
-Que dois-je faire en tant que testeur ?
-Simplement jouer et garder le jeu installé quelques semaines. Si quelque chose ne va pas, signale-le depuis le jeu ou écris-nous.
-Le lien de l'étape 2 dit que l'appli est introuvable
-L'étape 1 n'a pas encore été prise en compte. Vérifie que tu as bien rejoint le groupe avec le même compte Google que sur ton téléphone, attends quelques minutes, puis réessaie.
-Comment arrêter le test ?
-Sur la page de l'étape 2, choisis « Quitter le programme ». Tu peux aussi quitter le groupe.
-Une question ? monovagames@gmail.com
+ <footer>Une question ? <a href="mailto:monovagames@gmail.com">monovagames@gmail.com</a></footer>
+</main>
+<script>
+{
+/* ====== À REMPLIR : un bloc par jeu en test ======
+   groupe  : adresse du Google Group des testeurs (celui ajouté dans la Play Console, Test fermé > Testeurs)
+   paquet  : nom du package Android
+   Tant que « groupe » contient NOM-DU-GROUPE, le jeu s'affiche « bientôt ». */
+const GAMES = [
+ {nom:"CULTIQ", desc:"Le quiz de culture générale : défi du jour, Sprint, duels.", groupe:"https://groups.google.com/g/monovagames", paquet:"com.monovagames.cultiq"},
+];
+const ready = g => g.groupe && !g.groupe.includes("NOM-DU-GROUPE");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+document.getElementById("games").innerHTML = GAMES.map(g => `
+ <section class="game">
+  <h2>${esc(g.nom)}</h2><p class="d">${esc(g.desc)}</p>
+  ${ready(g) ? `<ol>
+   <li><div><b>Rejoins le groupe des testeurs</b><small>Clique sur « Rejoindre le groupe », connecté avec ton compte Google.</small>
+    <a class="btn" href="${esc(g.groupe)}">Rejoindre le groupe</a></div></li>
+   <li><div><b>Accepte le test</b><small>Clique sur « Devenir testeur » sur la page Google Play.</small>
+    <a class="btn" href="https://play.google.com/apps/testing/${esc(g.paquet)}">Devenir testeur</a></div></li>
+   <li><div><b>Installe le jeu</b><small>Il apparaît dans le Play Store sous le même compte.</small>
+    <a class="btn ok" href="https://play.google.com/store/apps/details?id=${esc(g.paquet)}">Ouvrir le Play Store</a></div></li>
+  </ol>` : `<span class="soon">Inscriptions bientôt ouvertes</span>`}
+ </section>`).join("");
+}
+</script>
+</body>
+</html>
