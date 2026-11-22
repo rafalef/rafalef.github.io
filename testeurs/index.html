@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Deviens testeur · MONOVA Games</title>
-<meta name="description" content="Teste les jeux MONOVA Games avant leur sortie sur Google Play.">
+<meta name="description" content="Teste les jeux et applis MONOVA Games avant leur sortie sur Google Play.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
 <style>
@@ -40,7 +40,7 @@ footer a{color:var(--ink)}
 <main>
  <div class="brand"><i></i>MONOVA Games</div>
  <h1>Deviens <span>testeur</span></h1>
- <p class="lead">Joue à nos jeux avant tout le monde, gratuitement, et aide-nous à les améliorer. Il faut un téléphone Android et un compte Google.</p>
+ <p class="lead">Essaie nos jeux et applis avant tout le monde, gratuitement, et aide-nous à les améliorer. Il faut un téléphone Android et un compte Google.</p>
  <div id="games"></div>
 
  <details><summary>C'est vraiment gratuit ?</summary><p>Oui. Le jeu de test est le même que celui qui sortira, en avant-première. Rien à payer, aucune inscription en dehors de ton compte Google.</p></details>
@@ -58,6 +58,7 @@ footer a{color:var(--ink)}
    Tant que « groupe » contient NOM-DU-GROUPE, le jeu s'affiche « bientôt ». */
 const GAMES = [
  {nom:"CULTIQ", desc:"Le quiz de culture générale : défi du jour, Sprint, duels.", groupe:"https://groups.google.com/g/monovagames", paquet:"com.monovagames.cultiq"},
+ {nom:"Cap Civique", desc:"Révisez l'examen civique (carte de séjour pluriannuelle, carte de résident, naturalisation) : questions corrigées, examens blancs et fiches. Application indépendante, non affiliée au ministère de l'Intérieur.", groupe:"https://groups.google.com/g/monovagames", paquet:"com.monovagames.capcivique"},
 ];
 const ready = g => g.groupe && !g.groupe.includes("NOM-DU-GROUPE");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
